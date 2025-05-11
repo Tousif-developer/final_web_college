@@ -1,0 +1,51 @@
+/*contain css of faculty, alumni*/
+.faculty, .alumni{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.faculty_details, .alumi_details{
+    height:475px; 
+    width:360px;
+    background-color: red;
+    margin: 50px;
+}
+.faculty_details, .alumi_details{
+    margin:40px;
+    background-color: red;
+    border-radius: 2px;
+    padding: 0px;
+    
+    font-size: 14px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    color: inherit;
+    background-color: rgba(0, 0, 0, 0.03);
+
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); 
+        border-radius: 8px;
+        
+        background: white;
+      
+}
+.faculty_details:hover,.alumi_details:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+    transform: translateY(-5px); 
+    
+  }
+.faculty_pic, .faculty_pic {
+    height:60%;
+    width:100%;
+    background-color: blue;
+}
+ h2{
+    text-align: center;
+    
+}
+.faculty_descp, .alumni_descp{
+    margin:0 20px;
+    text-align: center;
+}
+.faculty_descp:hover, .alumni_descp{
+    color:rgba(133, 138, 45, 0.705);
+}

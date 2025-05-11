@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Committees</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="Hithaldialogo.png" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/a2ec31729a.js" crossorigin="anonymous"></script>
+  <style>
+    .committe_container {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f8fb;
+      margin: 0;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #222;
+      margin-bottom: 40px;
+    }
+
+    .committee-grid {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .committee-card {
+      width: 280px;
+      padding: 30px 20px;
+      border-radius: 15px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, background 0.4s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: #222;
+    }
+
+    .committee-card:hover {
+      background: linear-gradient(135deg, #cfd8dc, #b2ebf2);
+      transform: scale(1.05);
+    }
+
+    .committee-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: #00796b;
+    }
+
+    .committee-card p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <div class="nav_top">
+        <div class="clk">
+          <i class="fa-sharp-duotone fa-solid fa-clock"></i>
+        </div>
+        <div id="datetime"></div>
+        <script>
+          function updateDateTime() {
+            const now = new Date();
+
+            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const day = days[now.getDay()];
+
+            const dd = String(now.getDate()).padStart(2, '0');
+            const mm = String(now.getMonth() + 1).padStart(2, '0'); // January is 0
+            const yyyy = now.getFullYear();
+
+            let hours = now.getHours();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // convert 0 to 12
+            hours = String(hours).padStart(2, '0');
+
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            const formattedDate = `${dd}-${mm}-${yyyy}`;
+            const formattedTime = `${hours}:${minutes}:${seconds} ${ampm}`;
+
+
+            document.getElementById("datetime").textContent = `${day}, ${formattedDate}, ${formattedTime}`;
+          }
+
+          setInterval(updateDateTime, 1000);
+          updateDateTime(); // initial call
+        </script>
+      </div>
+      <div class="nav_bottom">
+        <div class="nav_container">
+          <div class="first_part">
+            <div class="logo"><a href="index.html"><img class="img_logo" src="/allMaterials/logo.png"></a></div>
+            <div class="hit"><span style="color:5cb431;padding-right:4px;">HIT</span><span
+                style="color:#1e67ef;">AEIE</span>
+            </div>
+          </div>
+          <!--<a href="#"><div class="about" id="nav_content">ABOUT<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+      </div></a>--->
+
+          <!---for spacing in nav-->
+          <!-- <div class="nav_item about_dropdown">
+            <div style="width:150px;">
+            </div>
+            <div class="dropdown_menu">
+
+            </div>
+          </div> -->
+          <!------------------>
+          <div class="sec_part">
+            <div class="nav_item about_dropdown">
+              <div class="about" id="nav_content">
+                ABOUT<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+              </div>
+              <div class="dropdown_menu">
+                <a href="institute.html">
+                  <div class="dropdown_item">Institute</div>
+                </a>
+                <a href="about_department.html">
+                  <div class="dropdown_item">Department</div>
+                </a>
+                <a href="faculty.html">
+                  <div class="dropdown_item">Faculty</div>
+                </a>
+                <a href="technicalstaff.html">
+                  <div class="dropdown_item">Technical Staff</div>
+                </a>
+                <a href="committee.html">
+                  <div class="dropdown_item">Committee</div>
+                </a>
+                
+              </div>
+            </div>
+
+
+
+
+            <!--<a href="#"><div class="students" id="nav_content">STUDENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+            <div class="nav_item about_dropdown">
+              <div class="about" id="nav_content">
+                STUDENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+              </div>
+              <div class="dropdown_menu">
+                <a href="student list.html">
+                  <div class="dropdown_item">student list</div>
+                </a>
+                <a href="Training and internship.html">
+                  <div class="dropdown_item">training/internship</div>
+                </a>
+                <a href="industrial visit.html">
+                  <div class="dropdown_item">industrial visit</div>
+                </a>
+                <a href="placement.html">
+                  <div class="dropdown_item">placement</div>
+                </a>
+
+              </div>
+            </div>
+
+
+            <!--<a href="#"><div class="research" id="nav_content">RESEARCH<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+            <div class="nav_item about_dropdown">
+              <div class="about" id="nav_content">
+                RESEARCH<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+              </div>
+              <div class="dropdown_menu">
+                <div class="dropdown_item">research grants</div>
+                <a href="publication.html">
+                  <div class="dropdown_item">publications</div>
+                </a>
+                <div class="dropdown_item">consultancy</div>
+              </div>
+            </div>
+
+
+            <!--<a href="#"><div class="events" id="nav_content">EVENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+            <div class="nav_item about_dropdown">
+              <div class="about" id="nav_content">
+                EVENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+              </div>
+              <div class="dropdown_menu">
+                <div class="dropdown_item">seminar/workshop</div>
+                <div class="dropdown_item">symposium/conference</div>
+                <div class="dropdown_item">invited talks</div>
+                <div class="dropdown_item">alumini interaction</div>
+                <a href="/allMaterials/newsletter.pdf">
+                  <div class="dropdown_item">newsletters</div>
+                </a>
+                <a href="magazine.html">
+                  <div class="dropdown_item">magazine</div>
+                </a>
+                <div class="dropdown_item">wall magazine</div>
+                <div class="dropdown_item">others</div>
+              </div>
+            </div>
+
+
+            <div class="nav_item about_dropdown">
+              <a href="alumni.html">
+                <div class="about" id="nav_content">
+                  ALUMNI
+                </div>
+              </a>
+            </div>
+
+            <div class="nav_item about_dropdown">
+              <a href="student_chapter.html">
+                <div class="about" id="nav_content">
+                  STUDENT<br>CHAPTER
+                </div>
+              </a>
+            </div>
+
+
+
+            <!--<a href="#"><div class="downloads" id="nav_content">DOWNLOADS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+            <div class="nav_item about_dropdown">
+              <div class="about" id="nav_content">
+                DOWNLOADS<div><i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div>
+              </div>
+              <div class="dropdown_menu">
+                <a href="syllabus.html">
+                  <div class="dropdown_item">syllabus</div>
+                </a>
+                <div class="dropdown_item">academic</div>
+                <div class="dropdown_item">calander</div>
+                <div class="dropdown_item">notice</div>
+              </div>
+            </div>
+
+
+            <a href="contact.html">
+              <div class="contact" id="nav_content">CONTACT</div>
+            </a>
+          </div>
+
+          <!-- Adding hamBurger to make website responsive -->
+          <div id="hamBurger" onclick="openNavbar()">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+        </div>
+        <div class="sec_part2">
+          <div class="nav_item about_dropdown">
+            <div class="about" id="nav_content">
+              ABOUT<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+            </div>
+            <div class="dropdown_menu">
+              <a href="institute.html">
+                <div class="dropdown_item">Institute</div>
+              </a>
+              <a href="about_department.html">
+                <div class="dropdown_item">Department</div>
+              </a>
+              <a href="faculty.html">
+                <div class="dropdown_item">Faculty</div>
+              </a>
+              <a href="technicalstaff.html">
+                <div class="dropdown_item">Technical Staff</div>
+              </a>
+              <a href="committee.html">
+                <div class="dropdown_item">Committee</div>
+              </a>
+              <a href="faculty.html">
+                <div class="dropdown_item">Facilities</div>
+              </a>
+            </div>
+          </div>
+
+
+
+
+          <!--<a href="#"><div class="students" id="nav_content">STUDENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+          <div class="nav_item about_dropdown">
+            <div class="about" id="nav_content">
+              STUDENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+            </div>
+            <div class="dropdown_menu">
+              <a href="student list.html">
+                <div class="dropdown_item">student list</div>
+              </a>
+              <a href="Training and internship.html">
+                <div class="dropdown_item">training/internship</div>
+              </a>
+              <a href="industrial visit.html">
+                <div class="dropdown_item">industrial visit</div>
+              </a>
+              <a href="placement.html">
+                <div class="dropdown_item">placement</div>
+              </a>
+
+            </div>
+          </div>
+
+
+          <!--<a href="#"><div class="research" id="nav_content">RESEARCH<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+          <div class="nav_item about_dropdown">
+            <div class="about" id="nav_content">
+              RESEARCH<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+            </div>
+            <div class="dropdown_menu">
+              <div class="dropdown_item">research grants</div>
+              <a href="publication.html">
+                <div class="dropdown_item">publications</div>
+              </a>
+              <div class="dropdown_item">consultancy</div>
+            </div>
+          </div>
+
+
+          <!--<a href="#"><div class="events" id="nav_content">EVENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+          <div class="nav_item about_dropdown">
+            <div class="about" id="nav_content">
+              EVENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+            </div>
+            <div class="dropdown_menu">
+              <div class="dropdown_item">seminar/workshop</div>
+              <div class="dropdown_item">symposium/conference</div>
+              <div class="dropdown_item">invited talks</div>
+              <div class="dropdown_item">alumini interaction</div>
+              <a href="/allMaterials/newsletter.pdf">
+                <div class="dropdown_item">newsletters</div>
+              </a>
+              <a href="magazine.html">
+                <div class="dropdown_item">magazine</div>
+              </a>
+              <div class="dropdown_item">wall magazine</div>
+              <div class="dropdown_item">others</div>
+            </div>
+          </div>
+
+
+          <div class="nav_item about_dropdown">
+            <a href="alumni.html">
+              <div class="about" id="nav_content">
+                ALUMNI
+              </div>
+            </a>
+          </div>
+
+          <div class="nav_item about_dropdown">
+            <a href="student_chapter.html">
+              <div class="about" id="nav_content">
+                STUDENT<br>CHAPTER
+              </div>
+            </a>
+          </div>
+
+
+
+          <!--<a href="#"><div class="downloads" id="nav_content">DOWNLOADS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+          <div class="nav_item about_dropdown">
+            <div class="about" id="nav_content">
+              DOWNLOADS<div><i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div>
+            </div>
+            <div class="dropdown_menu">
+              <a href="syllabus.html">
+                <div class="dropdown_item">syllabus</div>
+              </a>
+              <div class="dropdown_item">academic</div>
+              <div class="dropdown_item">calander</div>
+              <div class="dropdown_item">notice</div>
+            </div>
+          </div>
+
+
+          <a href="contact.html">
+            <div class="contact" id="nav_content">CONTACT</div>
+          </a>
+        </div>
+        <script>
+          const openNavbar = () => {
+            const hamBurger = document.getElementById("hamBurger");
+            const secPart2 = document.querySelector('.sec_part2');
+
+            hamBurger.classList.toggle('active');
+
+            if (hamBurger.classList.contains('active')) {
+              secPart2.style.right = "0px";
+              hamBurger.innerHTML = `<strong class="cross">X</strong>`;
+            } else {
+              secPart2.style.right = "-100%";
+              hamBurger.innerHTML = `
+               <div class="line1"></div>
+               <div class="line2"></div>
+               <div class="line3"></div>`;
+            }
+          };
+        </script>
+      </div>
+    </div>
+  </header>
+  <div class="gap" style="height: 116px;"></div>
+
+
+  <div class="committe_container">
+    <h1>Departmental Committees</h1>
+
+    <div class="committee-grid">
+      <a href="advisory.html" class="committee-card">
+        <h3>Departmental Advisory Committee</h3>
+        <p>Department of Applied Electronics & Engineering</p>
+      </a>
+
+      <a href="insidecommitte.html" class="committee-card">
+        <h3>Programme Assessment & Quality Improvement Committee</h3>
+        <p>Department of Applied Electronics & Engineering</p>
+      </a>
+
+      <a href="bos.html" class="committee-card">
+        <h3> BOS Member </h3>
+        <p>Department of Applied Electronics & Engineering</p>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+
+    <div class="footer_left" style="width:100%; height:100%;">
+      <div id="heading_f">About HIT</div>
+      <div class="footer_l_content">Haldia Institute of Technology is the first private, accredited technical
+        institution in West Bengal, Located in Haldia, an industrial hub of Eastern India. It focuses on producing
+        skilled professionals in engineering, technology, and social sciences while also promoting advanced research in
+        these fields.</div>
+    </div>
+    <div class="footer_center" style="width:100%; height:100%;">
+      <div id="heading_f">quick links</div>
+      <div class="footer_l_content">ICCDC 2025 (Upcoming)<br>NSIC 2025<br>ICCDC 2023<br>ICCDC 2021<br>ICCDC
+        2019<br>ICCDC 2017</div>
+    </div>
+    <div class="footer_right" style="width:100%; height:100%;">
+      <div id="heading_f">follow us on social media</div>
+      <div class="icon_f">
+        <ul style="list-style-type: none;">
+          <li><a href="@"><i class="fa-brands fa-square-x-twitter fa-2xl"></i></a></li>
+          <li><a href="@"><i class="fa-brands fa-square-facebook fa-2xl"></i></a></li>
+          <li><a href="@"><i class="fa-brands fa-square-instagram fa-2xl"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+
+
+
+</body>
+
+</html>

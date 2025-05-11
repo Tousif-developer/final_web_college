@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="Hithaldialogo.png" type="image/x-icon">
+
+
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body{
+      overflow-x: hidden;
+    }
+
+    /*banner*/
+
+    .banner-container {
+      width: 100%;
+      overflow: hidden;
+      background: #000000;
+      padding: 20px 0;
+    }
+
+    .image-track {
+      display: flex;
+      width: calc(250px * 16);
+      /* 8 images * 2 for seamless loop */
+      animation: scrollBanner 30s linear infinite;
+    }
+
+    .image-track img {
+      width: 250px;
+      height: 150px;
+      object-fit: cover;
+      margin: 0 10px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease;
+    }
+
+    .image-track {
+      display: flex;
+      width: calc(250px * 14);
+      /* 7 images * 2 for seamless loop */
+      animation: scrollBanner 30s linear infinite;
+    }
+
+
+    @keyframes scrollBanner {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    /*tag line*/
+
+    .tagline-wrapper {
+      position: relative;
+      width: 90%;
+      max-width: 1000px;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+    }
+
+    .tagline {
+      position: absolute;
+      font-size: 2.8rem;
+      font-weight: 700;
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: fadeSlide 15s infinite;
+      letter-spacing: 1.5px;
+
+    }
+
+    /* Individual gradient styles */
+    .tagline:nth-child(1) {
+      background-image: linear-gradient(90deg, #00ffe7, #4dff91);
+      animation-delay: 0s;
+    }
+
+    .tagline:nth-child(2) {
+      background-image: linear-gradient(90deg, #ff7f7f, #ffcc70);
+      animation-delay: 5s;
+    }
+
+    .tagline:nth-child(3) {
+      background-image: linear-gradient(90deg, #7fbfff, #b07fff);
+      animation-delay: 10s;
+    }
+
+    @keyframes fadeSlide {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      10% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      30% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      40% {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .tagline {
+        font-size: 1.8rem;
+        padding: 0 10px;
+      }
+    }
+
+    /*pics*/
+
+    .slideshow {
+      position: relative;
+      left:5%;
+      width: 90%;
+      height: 600px;
+      overflow: hidden;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .slideshow img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(1.1);
+      filter: blur(4px);
+      animation: slideFadeZoom 20s infinite;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slideshow img:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .slideshow img:nth-child(2) {
+      animation-delay: 6s;
+    }
+
+    .slideshow img:nth-child(3) {
+      animation-delay: 12s;
+    }
+    .slideshow img:nth-child(4) {
+      animation-delay: 18s;
+    }
+    .slideshow img:nth-child(5) {
+      animation-delay: 24s;
+    }
+    .slideshow img:nth-child(6) {
+      animation-delay: 30s;
+    }
+    .slideshow img:nth-child(7) {
+      animation-delay: 36s;
+    }
+
+    @keyframes slideFadeZoom {
+      0% {
+        opacity: 0;
+        transform: scale(1.1);
+        filter: blur(4px);
+      }
+
+      5% {
+        opacity: 1;
+        transform: scale(1.05);
+        filter: blur(0);
+      }
+
+      30% {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+      }
+
+      40% {
+        opacity: 0;
+        transform: scale(1.1);
+        filter: blur(4px);
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(1.1);
+        filter: blur(4px);
+      }
+    }
+
+    .tag_img {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      align-items: center;
+    }
+
+    @media (max-width : 420px) {
+      .tag_img {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    }
+  </style>
+
+  <script src="https://kit.fontawesome.com/a2ec31729a.js" crossorigin="anonymous"></script>
+</head>
+
+<body style="background-color: #ffffff;">
+  <header>
+    <div class="nav">
+      <div class="nav_top">
+        <div class="clk">
+          <i class="fa-sharp-duotone fa-solid fa-clock"></i>
+        </div>
+        <div id="datetime"></div>
+        <script>
+          function updateDateTime() {
+            const now = new Date();
+
+            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const day = days[now.getDay()];
+
+            const dd = String(now.getDate()).padStart(2, '0');
+            const mm = String(now.getMonth() + 1).padStart(2, '0'); // January is 0
+            const yyyy = now.getFullYear();
+
+            let hours = now.getHours();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // convert 0 to 12
+            hours = String(hours).padStart(2, '0');
+
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            const formattedDate = `${dd}-${mm}-${yyyy}`;
+            const formattedTime = `${hours}:${minutes}:${seconds} ${ampm}`;
+
+
+            document.getElementById("datetime").textContent = `${day}, ${formattedDate}, ${formattedTime}`;
+          }
+
+          setInterval(updateDateTime, 1000);
+          updateDateTime(); // initial call
+        </script>
+      </div>
+      <div class="nav_bottom">
+        <div class="nav_container">
+          <div class="first_part">
+            <div class="logo"><a href="index.html"><img class="img_logo" src="/allMaterials/logo.png"></a></div>
+            <div class="hit"><span style="color:5cb431;padding-right:4px;">HIT</span><span
+                style="color:#1e67ef;">AEIE</span>
+            </div>
+          </div>
+          <!--<a href="#"><div class="about" id="nav_content">ABOUT<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+      </div></a>--->
+
+          <!---for spacing in nav-->
+          <!-- <div class="nav_item about_dropdown">
+            <div style="width:150px;">
+            </div>
+            <div class="dropdown_menu">
+
+            </div>
+          </div> -->
+          <!------------------>
+          <div class="sec_part">
+            <div class="nav_item about_dropdown">
+              <div class="about" id="nav_content">
+                ABOUT<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+              </div>
+              <div class="dropdown_menu">
+                <a href="institute.html">
+                  <div class="dropdown_item">Institute</div>
+                </a>
+                <a href="about_department.html">
+                  <div class="dropdown_item">Department</div>
+                </a>
+                <a href="faculty.html">
+                  <div class="dropdown_item">Faculty</div>
+                </a>
+                <a href="technicalstaff.html">
+                  <div class="dropdown_item">Technical Staff</div>
+                </a>
+                <a href="committee.html">
+                  <div class="dropdown_item">Committee</div>
+                </a>
+                
+              </div>
+            </div>
+
+
+
+
+            <!--<a href="#"><div class="students" id="nav_content">STUDENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+            <div class="nav_item about_dropdown">
+              <div class="about" id="nav_content">
+                STUDENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+              </div>
+              <div class="dropdown_menu">
+                <a href="student list.html">
+                  <div class="dropdown_item">student list</div>
+                </a>
+                <a href="Training and internship.html">
+                  <div class="dropdown_item">training/internship</div>
+                </a>
+                <a href="industrial visit.html">
+                  <div class="dropdown_item">industrial visit</div>
+                </a>
+                <a href="placement.html">
+                  <div class="dropdown_item">placement</div>
+                </a>
+
+              </div>
+            </div>
+
+
+            <!--<a href="#"><div class="research" id="nav_content">RESEARCH<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+            <div class="nav_item about_dropdown">
+              <div class="about" id="nav_content">
+                RESEARCH<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+              </div>
+              <div class="dropdown_menu">
+                <div class="dropdown_item">research grants</div>
+                <a href="publication.html">
+                  <div class="dropdown_item">publications</div>
+                </a>
+                <div class="dropdown_item">consultancy</div>
+              </div>
+            </div>
+
+
+            <!--<a href="#"><div class="events" id="nav_content">EVENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+            <div class="nav_item about_dropdown">
+              <div class="about" id="nav_content">
+                EVENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+              </div>
+              <div class="dropdown_menu">
+                <div class="dropdown_item">seminar/workshop</div>
+                <div class="dropdown_item">symposium/conference</div>
+                <div class="dropdown_item">invited talks</div>
+                <div class="dropdown_item">alumini interaction</div>
+                <a href="/allMaterials/newsletter.pdf">
+                  <div class="dropdown_item">newsletters</div>
+                </a>
+                <a href="magazine.html">
+                  <div class="dropdown_item">magazine</div>
+                </a>
+                <div class="dropdown_item">wall magazine</div>
+                <div class="dropdown_item">others</div>
+              </div>
+            </div>
+
+
+            <div class="nav_item about_dropdown">
+              <a href="alumni.html">
+                <div class="about" id="nav_content">
+                  ALUMNI
+                </div>
+              </a>
+            </div>
+
+            <div class="nav_item about_dropdown">
+              <a href="student_chapter.html">
+                <div class="about" id="nav_content">
+                  STUDENT<br>CHAPTER
+                </div>
+              </a>
+            </div>
+
+
+
+            <!--<a href="#"><div class="downloads" id="nav_content">DOWNLOADS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+            <div class="nav_item about_dropdown">
+              <div class="about" id="nav_content">
+                DOWNLOADS<div><i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div>
+              </div>
+              <div class="dropdown_menu">
+                <a href="syllabus.html">
+                  <div class="dropdown_item">syllabus</div>
+                </a>
+                <div class="dropdown_item">academic</div>
+                <div class="dropdown_item">calander</div>
+                <div class="dropdown_item">notice</div>
+              </div>
+            </div>
+
+
+            <a href="contact.html">
+              <div class="contact" id="nav_content">CONTACT</div>
+            </a>
+          </div>
+
+          <!-- Adding hamBurger to make website responsive -->
+          <div id="hamBurger" onclick="openNavbar()">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+        </div>
+        <div class="sec_part2">
+          <div class="nav_item about_dropdown">
+            <div class="about" id="nav_content">
+              ABOUT<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+            </div>
+            <div class="dropdown_menu">
+              <a href="institute.html">
+                <div class="dropdown_item">Institute</div>
+              </a>
+              <a href="about_department.html">
+                <div class="dropdown_item">Department</div>
+              </a>
+              <a href="faculty.html">
+                <div class="dropdown_item">Faculty</div>
+              </a>
+              <a href="technicalstaff.html">
+                <div class="dropdown_item">Technical Staff</div>
+              </a>
+              <a href="committee.html">
+                <div class="dropdown_item">Committee</div>
+              </a>
+              <a href="faculty.html">
+                <div class="dropdown_item">Facilities</div>
+              </a>
+            </div>
+          </div>
+
+
+
+
+          <!--<a href="#"><div class="students" id="nav_content">STUDENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+          <div class="nav_item about_dropdown">
+            <div class="about" id="nav_content">
+              STUDENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+            </div>
+            <div class="dropdown_menu">
+              <a href="student list.html">
+                <div class="dropdown_item">student list</div>
+              </a>
+              <a href="Training and internship.html">
+                <div class="dropdown_item">training/internship</div>
+              </a>
+              <a href="industrial visit.html">
+                <div class="dropdown_item">industrial visit</div>
+              </a>
+              <a href="placement.html">
+                <div class="dropdown_item">placement</div>
+              </a>
+
+            </div>
+          </div>
+
+
+          <!--<a href="#"><div class="research" id="nav_content">RESEARCH<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+          <div class="nav_item about_dropdown">
+            <div class="about" id="nav_content">
+              RESEARCH<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+            </div>
+            <div class="dropdown_menu">
+              <div class="dropdown_item">research grants</div>
+              <a href="publication.html">
+                <div class="dropdown_item">publications</div>
+              </a>
+              <div class="dropdown_item">consultancy</div>
+            </div>
+          </div>
+
+
+          <!--<a href="#"><div class="events" id="nav_content">EVENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+          <div class="nav_item about_dropdown">
+            <div class="about" id="nav_content">
+              EVENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+            </div>
+            <div class="dropdown_menu">
+              <div class="dropdown_item">seminar/workshop</div>
+              <div class="dropdown_item">symposium/conference</div>
+              <div class="dropdown_item">invited talks</div>
+              <div class="dropdown_item">alumini interaction</div>
+              <a href="/allMaterials/newsletter.pdf">
+                <div class="dropdown_item">newsletters</div>
+              </a>
+              <a href="magazine.html">
+                <div class="dropdown_item">magazine</div>
+              </a>
+              <div class="dropdown_item">wall magazine</div>
+              <div class="dropdown_item">others</div>
+            </div>
+          </div>
+
+
+          <div class="nav_item about_dropdown">
+            <a href="alumni.html">
+              <div class="about" id="nav_content">
+                ALUMNI
+              </div>
+            </a>
+          </div>
+
+          <div class="nav_item about_dropdown">
+            <a href="student_chapter.html">
+              <div class="about" id="nav_content">
+                STUDENT<br>CHAPTER
+              </div>
+            </a>
+          </div>
+
+
+
+          <!--<a href="#"><div class="downloads" id="nav_content">DOWNLOADS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+          <div class="nav_item about_dropdown">
+            <div class="about" id="nav_content">
+              DOWNLOADS<div><i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div>
+            </div>
+            <div class="dropdown_menu">
+              <a href="syllabus.html">
+                <div class="dropdown_item">syllabus</div>
+              </a>
+              <div class="dropdown_item">academic</div>
+              <div class="dropdown_item">calander</div>
+              <div class="dropdown_item">notice</div>
+            </div>
+          </div>
+
+
+          <a href="contact.html">
+            <div class="contact" id="nav_content">CONTACT</div>
+          </a>
+        </div>
+        <script>
+          const openNavbar = () => {
+            const hamBurger = document.getElementById("hamBurger");
+            const secPart2 = document.querySelector('.sec_part2');
+
+            hamBurger.classList.toggle('active');
+
+            if (hamBurger.classList.contains('active')) {
+              secPart2.style.right = "0px";
+              hamBurger.innerHTML = `<strong class="cross">X</strong>`;
+            } else {
+              secPart2.style.right = "-100%";
+              hamBurger.innerHTML = `
+               <div class="line1"></div>
+               <div class="line2"></div>
+               <div class="line3"></div>`;
+            }
+          };
+        </script>
+      </div>
+    </div>
+  </header>
+  <div class="gap" style="height: 116px;"></div>
+  <main>
+    <div class="tag_img">
+      <div class="tagline-wrapper">
+        <div class="tagline">Instrumenting the Future with Applied Intelligence</div>
+        <div class="tagline">From Circuits to Control — We Define Precision</div>
+
+        <div class="tagline">Precision in Measurement, Power in Innovation</div>
+      </div>
+      <div><img src="/allMaterials/tag_logo.png"
+          style="height: 300px;width:100%; border-radius: 50px;margin-right:20px;"></div>
+
+    </div>
+
+    <div class="slideshow">
+      <img src="/allMaterials/student_chapter1.jpg" alt="Image 1">
+      <img src="/allMaterials/student_chapter3.jpg" alt="Image 2">
+      <img src="/allMaterials/student_chapter4.jpg" alt="Image 3">
+      <img src="/allMaterials/student_chapter5.jpg" alt="Image 4">
+      <img src="/allMaterials/student_chapter2.jpg" alt="Image 5">
+      <img src="/allMaterials/student_chapter6.jpg" alt="Image 6">
+      <img src="/allMaterials/student_chapter2.jpg" alt="Image 7">
+    </div>
+
+    <div class="gap" style="height: 50px;"></div>
+
+    <div class="banner-container">
+      <div class="image-track">
+        <!-- First set of 7 images -->
+        <img src="/allMaterials/student_chapter1.jpg" alt="1">
+        <img src="/allMaterials/student_chapter2.jpg" alt="2">
+        <img src="/allMaterials/student_chapter3.jpg" alt="3">
+        <img src="/allMaterials/student_chapter4.jpg" alt="4">
+        <img src="/allMaterials/student_chapter5.jpg" alt="5">
+        <img src="/allMaterials/student_chapter6.jpg" alt="6">
+        <img src="/allMaterials/student_chapter2.jpg" alt="7">
+
+        <!-- Repeating the same 7 images again for infinite loop -->
+        <img src="/allMaterials/student_chapter1.jpg" alt="1">
+        <img src="/allMaterials/student_chapter2.jpg" alt="2">
+        <img src="/allMaterials/student_chapter3.jpg" alt="3">
+        <img src="/allMaterials/student_chapter4.jpg" alt="4">
+        <img src="/allMaterials/student_chapter5.jpg" alt="5">
+        <img src="/allMaterials/student_chapter6.jpg" alt="6">
+        <img src="/allMaterials/student_chapter2.jpg" alt="7">
+      </div>
+
+    </div>
+  </main>
+
+  <div class="gap" style="height: 50px;"></div>
+  <footer>
+
+    <div class="footer_left" style="width:100%; height:100%;">
+      <div id="heading_f">About HIT</div>
+      <div class="footer_l_content">Haldia Institute of Technology is the first private, accredited technical
+        institution in West Bengal, Located in Haldia, an industrial hub of Eastern India. It focuses on producing
+        skilled professionals in engineering, technology, and social sciences while also promoting advanced research in
+        these fields.</div>
+    </div>
+    <div class="footer_center" style="width:100%; height:100%;">
+      <div id="heading_f">quick links</div>
+      <div class="footer_l_content">ICCDC 2025 (Upcoming)<br>NSIC 2025<br>ICCDC 2023<br>ICCDC 2021<br>ICCDC
+        2019<br>ICCDC 2017</div>
+    </div>
+    <div class="footer_right" style="width:100%; height:100%;">
+      <div id="heading_f">follow us on social media</div>
+      <div class="icon_f">
+        <ul style="list-style-type: none;">
+          <li><a href="@"><i class="fa-brands fa-square-x-twitter fa-2xl"></i></a></li>
+          <li><a href="@"><i class="fa-brands fa-square-facebook fa-2xl"></i></a></li>
+          <li><a href="@"><i class="fa-brands fa-square-instagram fa-2xl"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

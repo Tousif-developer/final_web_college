@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Department of applied electronics and instrumentation engineering</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="about_dep.css">
+  <script src="https://kit.fontawesome.com/a2ec31729a.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="Hithaldialogo.png" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/a2ec31729a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <div class="nav_top">
+        <div class="clk">
+          <i class="fa-sharp-duotone fa-solid fa-clock"></i>
+        </div>
+        <div id="datetime"></div>
+        <script>
+          function updateDateTime() {
+            const now = new Date();
+
+            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const day = days[now.getDay()];
+
+            const dd = String(now.getDate()).padStart(2, '0');
+            const mm = String(now.getMonth() + 1).padStart(2, '0'); // January is 0
+            const yyyy = now.getFullYear();
+
+            let hours = now.getHours();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // convert 0 to 12
+            hours = String(hours).padStart(2, '0');
+
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            const formattedDate = `${dd}-${mm}-${yyyy}`;
+            const formattedTime = `${hours}:${minutes}:${seconds} ${ampm}`;
+
+
+            document.getElementById("datetime").textContent = `${day}, ${formattedDate}, ${formattedTime}`;
+          }
+
+          setInterval(updateDateTime, 1000);
+          updateDateTime(); // initial call
+        </script>
+      </div>
+      <div class="nav_bottom">
+        <div class="nav_container">
+          <div class="first_part">
+            <div class="logo"><a href="index.html"><img class="img_logo" src="/allMaterials/logo.png"></a></div>
+            <div class="hit"><span style="color:5cb431;padding-right:4px;">HIT</span><span
+                style="color:#1e67ef;">AEIE</span>
+            </div>
+          </div>
+          <!--<a href="#"><div class="about" id="nav_content">ABOUT<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+      </div></a>--->
+
+          <!---for spacing in nav-->
+          <!-- <div class="nav_item about_dropdown">
+            <div style="width:150px;">
+            </div>
+            <div class="dropdown_menu">
+
+            </div>
+          </div> -->
+          <!------------------>
+          <div class="sec_part">
+            <div class="nav_item about_dropdown">
+              <div class="about" id="nav_content">
+                ABOUT<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+              </div>
+              <div class="dropdown_menu">
+                <a href="institute.html">
+                  <div class="dropdown_item">Institute</div>
+                </a>
+                <a href="about_department.html">
+                  <div class="dropdown_item">Department</div>
+                </a>
+                <a href="faculty.html">
+                  <div class="dropdown_item">Faculty</div>
+                </a>
+                <a href="technicalstaff.html">
+                  <div class="dropdown_item">Technical Staff</div>
+                </a>
+                <a href="committee.html">
+                  <div class="dropdown_item">Committee</div>
+                </a>
+                
+              </div>
+            </div>
+
+
+
+
+            <!--<a href="#"><div class="students" id="nav_content">STUDENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+            <div class="nav_item about_dropdown">
+              <div class="about" id="nav_content">
+                STUDENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+              </div>
+              <div class="dropdown_menu">
+                <a href="student list.html">
+                  <div class="dropdown_item">student list</div>
+                </a>
+                <a href="Training and internship.html">
+                  <div class="dropdown_item">training/internship</div>
+                </a>
+                <a href="industrial visit.html">
+                  <div class="dropdown_item">industrial visit</div>
+                </a>
+                <a href="placement.html">
+                  <div class="dropdown_item">placement</div>
+                </a>
+
+              </div>
+            </div>
+
+
+            <!--<a href="#"><div class="research" id="nav_content">RESEARCH<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+            <div class="nav_item about_dropdown">
+              <div class="about" id="nav_content">
+                RESEARCH<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+              </div>
+              <div class="dropdown_menu">
+                <div class="dropdown_item">research grants</div>
+                <a href="publication.html">
+                  <div class="dropdown_item">publications</div>
+                </a>
+                <div class="dropdown_item">consultancy</div>
+              </div>
+            </div>
+
+
+            <!--<a href="#"><div class="events" id="nav_content">EVENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+            <div class="nav_item about_dropdown">
+              <div class="about" id="nav_content">
+                EVENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+              </div>
+              <div class="dropdown_menu">
+                <div class="dropdown_item">seminar/workshop</div>
+                <div class="dropdown_item">symposium/conference</div>
+                <div class="dropdown_item">invited talks</div>
+                <div class="dropdown_item">alumini interaction</div>
+                <a href="/allMaterials/newsletter.pdf">
+                  <div class="dropdown_item">newsletters</div>
+                </a>
+                <a href="magazine.html">
+                  <div class="dropdown_item">magazine</div>
+                </a>
+                <div class="dropdown_item">wall magazine</div>
+                <div class="dropdown_item">others</div>
+              </div>
+            </div>
+
+
+            <div class="nav_item about_dropdown">
+              <a href="alumni.html">
+                <div class="about" id="nav_content">
+                  ALUMNI
+                </div>
+              </a>
+            </div>
+
+            <div class="nav_item about_dropdown">
+              <a href="student_chapter.html">
+                <div class="about" id="nav_content">
+                  STUDENT<br>CHAPTER
+                </div>
+              </a>
+            </div>
+
+
+
+            <!--<a href="#"><div class="downloads" id="nav_content">DOWNLOADS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+            <div class="nav_item about_dropdown">
+              <div class="about" id="nav_content">
+                DOWNLOADS<div><i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div>
+              </div>
+              <div class="dropdown_menu">
+                <a href="syllabus.html">
+                  <div class="dropdown_item">syllabus</div>
+                </a>
+                <div class="dropdown_item">academic</div>
+                <div class="dropdown_item">calander</div>
+                <div class="dropdown_item">notice</div>
+              </div>
+            </div>
+
+
+            <a href="contact.html">
+              <div class="contact" id="nav_content">CONTACT</div>
+            </a>
+          </div>
+
+          <!-- Adding hamBurger to make website responsive -->
+          <div id="hamBurger" onclick="openNavbar()">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+        </div>
+        <div class="sec_part2">
+          <div class="nav_item about_dropdown">
+            <div class="about" id="nav_content">
+              ABOUT<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+            </div>
+            <div class="dropdown_menu">
+              <a href="institute.html">
+                <div class="dropdown_item">Institute</div>
+              </a>
+              <a href="about_department.html">
+                <div class="dropdown_item">Department</div>
+              </a>
+              <a href="faculty.html">
+                <div class="dropdown_item">Faculty</div>
+              </a>
+              <a href="technicalstaff.html">
+                <div class="dropdown_item">Technical Staff</div>
+              </a>
+              <a href="committee.html">
+                <div class="dropdown_item">Committee</div>
+              </a>
+              <a href="faculty.html">
+                <div class="dropdown_item">Facilities</div>
+              </a>
+            </div>
+          </div>
+
+
+
+
+          <!--<a href="#"><div class="students" id="nav_content">STUDENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+          <div class="nav_item about_dropdown">
+            <div class="about" id="nav_content">
+              STUDENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+            </div>
+            <div class="dropdown_menu">
+              <a href="student list.html">
+                <div class="dropdown_item">student list</div>
+              </a>
+              <a href="Training and internship.html">
+                <div class="dropdown_item">training/internship</div>
+              </a>
+              <a href="industrial visit.html">
+                <div class="dropdown_item">industrial visit</div>
+              </a>
+              <a href="placement.html">
+                <div class="dropdown_item">placement</div>
+              </a>
+
+            </div>
+          </div>
+
+
+          <!--<a href="#"><div class="research" id="nav_content">RESEARCH<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+          <div class="nav_item about_dropdown">
+            <div class="about" id="nav_content">
+              RESEARCH<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+            </div>
+            <div class="dropdown_menu">
+              <div class="dropdown_item">research grants</div>
+              <a href="publication.html">
+                <div class="dropdown_item">publications</div>
+              </a>
+              <div class="dropdown_item">consultancy</div>
+            </div>
+          </div>
+
+
+          <!--<a href="#"><div class="events" id="nav_content">EVENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+          <div class="nav_item about_dropdown">
+            <div class="about" id="nav_content">
+              EVENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+            </div>
+            <div class="dropdown_menu">
+              <div class="dropdown_item">seminar/workshop</div>
+              <div class="dropdown_item">symposium/conference</div>
+              <div class="dropdown_item">invited talks</div>
+              <div class="dropdown_item">alumini interaction</div>
+              <a href="/allMaterials/newsletter.pdf">
+                <div class="dropdown_item">newsletters</div>
+              </a>
+              <a href="magazine.html">
+                <div class="dropdown_item">magazine</div>
+              </a>
+              <div class="dropdown_item">wall magazine</div>
+              <div class="dropdown_item">others</div>
+            </div>
+          </div>
+
+
+          <div class="nav_item about_dropdown">
+            <a href="alumni.html">
+              <div class="about" id="nav_content">
+                ALUMNI
+              </div>
+            </a>
+          </div>
+
+          <div class="nav_item about_dropdown">
+            <a href="student_chapter.html">
+              <div class="about" id="nav_content">
+                STUDENT<br>CHAPTER
+              </div>
+            </a>
+          </div>
+
+
+
+          <!--<a href="#"><div class="downloads" id="nav_content">DOWNLOADS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+          <div class="nav_item about_dropdown">
+            <div class="about" id="nav_content">
+              DOWNLOADS<div><i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div>
+            </div>
+            <div class="dropdown_menu">
+              <a href="syllabus.html">
+                <div class="dropdown_item">syllabus</div>
+              </a>
+              <div class="dropdown_item">academic</div>
+              <div class="dropdown_item">calander</div>
+              <div class="dropdown_item">notice</div>
+            </div>
+          </div>
+
+
+          <a href="contact.html">
+            <div class="contact" id="nav_content">CONTACT</div>
+          </a>
+        </div>
+        <script>
+          const openNavbar = () => {
+            const hamBurger = document.getElementById("hamBurger");
+            const secPart2 = document.querySelector('.sec_part2');
+
+            hamBurger.classList.toggle('active');
+
+            if (hamBurger.classList.contains('active')) {
+              secPart2.style.right = "0px";
+              hamBurger.innerHTML = `<strong class="cross">X</strong>`;
+            } else {
+              secPart2.style.right = "-100%";
+              hamBurger.innerHTML = `
+               <div class="line1"></div>
+               <div class="line2"></div>
+               <div class="line3"></div>`;
+            }
+          };
+        </script>
+      </div>
+    </div>
+  </header>
+  <div class="gap" style="height: 116px;"></div>
+  <main>
+    <div class="heading">
+      <h1>Department of applied electronics and instrumentation engineering</h1>
+    </div>
+    <div class="description">The Department of Applied Electronics and Instrumentation Engineering at Haldia Institute
+      of Technology (HIT), established in 1996, is a forward-looking academic unit committed to producing skilled
+      professionals in the fields of instrumentation, control systems, and industrial automation. The department follows
+      an Outcome-Based Education (OBE) structure, which emphasizes measurable learning outcomes and continuous
+      improvement. This approach ensures that students not only acquire theoretical knowledge but also develop critical
+      problem-solving, analytical, and design skills tailored to industry demands. The OBE framework is implemented
+      through clearly defined Program Educational Objectives (PEOs), Program Outcomes (POs), and Course Outcomes (COs),
+      all aligned with national and international engineering education standards. Instrumentation and automation
+      engineering, being an interdisciplinary field, integrates principles from electronics, electrical engineering, and
+      computer science to create and maintain systems that monitor and control industrial processes. AEIE department
+      provides a strong academic and practical foundation through state-of-the-art laboratories, real-time project work,
+      and industry-relevant training modules in areas such as embedded systems, industrial instrumentation, and
+      PLC/SCADA systems. The department nurtures a vibrant academic environment supported by qualified faculty, regular
+      seminars, industry visits, and technical workshops. It offers excellent training and placement opportunities, with
+      students regularly placed in top-tier organizations in both core and IT sectors. A well-established alumni network
+      further strengthens the department, with former students achieving success in global companies, higher education
+      institutions, and research organizations. The achievements of these alumni stand as a testament to the
+      department's academic rigor and its commitment to developing industry-ready graduates. For those aspiring to build
+      a successful career in instrumentation and automation, the Department of Applied Electronics and Instrumentation
+      Engineering at HIT offers a highly supportive and promising platform.</div>
+
+    <div class="mid">
+      <div class="vision" id="vmppp">
+        <div class="vmpppIn"><a href="@">Vision</a></div>
+        <div class="descp">
+          To become a dynamic contributor to the community by ensuring excellence in academic and research in the field
+          of Applied Electronics and Instrumentation Engineering and to create an environment that will facilitate the
+          growth of individuals in this field through innovative teaching, research and involvement of industry.
+        </div>
+      </div>
+
+      <div class="mission" id="vmppp">
+        <div class="vmpppIn"><a href="@">Mission</a></div>
+        <div class="descp">
+          <div>M1: To produce quality engineering graduates with the capacity of serving the arena of science ,
+            engineering , teaching , research , entrepreneurship and management.</div>
+          <br>
+          <div>M2: To add a skill-set such as communication parameter, ethical inputs and to nurture the characteristics
+            of lifelong learning.</div>
+          <br>
+          <div>M3: To ensure the capability of work in a team effectively in different environments & to add tenacity to
+            build workforce.</div>
+
+        </div>
+      </div>
+      <div class="pos" id="vmppp">
+        <div class="vmpppIn"><a href="@">Program outcomes (POs)</a></div>
+        <div class="descp">
+          To become a dynamic contributor to the community by ensuring excellence in academic and research in the field
+          of Applied Electronics and Instrumentation Engineering and to create an environment that will facilitate the
+          growth of individuals in this field through innovative teaching, research and involvement of industry.
+        </div>
+      </div>
+      <div class="peo" id="vmppp">
+        <div class="vmpppIn"><a href="@">Program education objectives (PEOs)</a></div>
+        <div class="descp">
+          <div>PEO 1: To impart technical competency, knowledge, skill which ensure capability to solve problems in
+            Industry, Research and Academics related to Instrumentation Engineering & other related disciplines.</div>
+          <br>
+          <div>PEO 2: To prepare students for successful careers in national and international public or private sector
+            organizations while equipping them with the knowledge and skills to pursue higher studies and research in
+            Instrumentation Engineering and related disciplines.</div>
+          <br>
+          <div>PEO 3: To frame the mindset to enhance technical knowledge through lifelong learning may be in the
+            structured or in the unstructured way. To impart the attributes towards successful adaptation to
+            technological & cultural changes.</div>
+          <br>
+          <div>PEO 4: To develop the ability to function effectively in diverse professional roles—individually,
+            collaboratively within a team, or as a leader—while adapting to dynamic environments in academia, industry,
+            and research.</div>
+          <br>
+          <div>PEO 5: To fulfill the needs of society through their acquired attributes in ethical & responsible manner.
+          </div>
+        </div>
+      </div>
+      <div class="pso" id="vmppp">
+        <div class="vmpppIn"><a href="@">Program specific Outcomes (PSOs)</a></div>
+        <div class="descp">
+          <div>PSO 1: Able to develop a strong foundation in the scientific, technology, engineering and mathematics
+            (STEM) & to apply these in a unified manner for real life problems pertaining to Electronics and
+            Instrumentation engg.</div>
+          <br>
+          <div>PSO 2: Able to implement a range of instrumentation engineering features, including the use of
+            contemporary industrial automation technologies, sensory systems, real-time data processing, and networking
+            protocols to address challenging engineering issues.</div>
+          <br>
+          <div>PSO 3: Able to extend electronics and instrumentation engineering skill into interdisciplinary fields to
+            explore research and entrepreneurship opportunities in the field of biomedical, renewable energy, process
+            measurements and control, and Industry 4.0.</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+  <footer>
+
+    <div class="footer_left" style="width:100%; height:100%;">
+      <div id="heading_f">About HIT</div>
+      <div class="footer_l_content">Haldia Institute of Technology is the first private, accredited technical
+        institution in West Bengal, Located in Haldia, an industrial hub of Eastern India. It focuses on producing
+        skilled professionals in engineering, technology, and social sciences while also promoting advanced research in
+        these fields.</div>
+    </div>
+    <div class="footer_center" style="width:100%; height:100%;">
+      <div id="heading_f">quick links</div>
+      <div class="footer_l_content">ICCDC 2025 (Upcoming)<br>NSIC 2025<br>ICCDC 2023<br>ICCDC 2021<br>ICCDC
+        2019<br>ICCDC 2017</div>
+    </div>
+    <div class="footer_right" style="width:100%; height:100%;">
+      <div id="heading_f">follow us on social media</div>
+      <div class="icon_f">
+        <ul style="list-style-type: none;">
+          <li><a href="@"><i class="fa-brands fa-square-x-twitter fa-2xl"></i></a></li>
+          <li><a href="@"><i class="fa-brands fa-square-facebook fa-2xl"></i></a></li>
+          <li><a href="@"><i class="fa-brands fa-square-instagram fa-2xl"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

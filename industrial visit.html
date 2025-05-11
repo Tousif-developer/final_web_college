@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Industrial Visit</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="icon" href="Hithaldialogo.png" type="image/x-icon">
+  <script src="https://kit.fontawesome.com/a2ec31729a.js" crossorigin="anonymous"></script>
+  <style>
+    .body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fafafa;
+      margin: 0;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 5px;
+      color: #222;
+    }
+
+    h3 {
+      text-align: center;
+      color: #9cba0d;
+      letter-spacing: 1px;
+      margin-bottom: 40px;
+    }
+
+    .visit-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .visit-container:hover {
+      transform: scale(1.02);
+    }
+
+    .visit-img {
+      width: 300px;
+      height: 100%;
+      object-fit: cover;
+      transition: filter 0.4s ease;
+    }
+
+    .visit-container:hover .visit-img {
+      filter: brightness(1.1) drop-shadow(0 0 10px #4fc3f7);
+    }
+
+    .visit-content {
+      padding: 20px 30px 0 20px;
+      flex: 1;
+      transition: background 0.6s ease;
+    }
+
+    .visit-container:hover {
+      background: linear-gradient(135deg, #e3f2fd, #f1f8e9, #e3f2fd);
+      background-size: 300% 300%;
+      animation: shine 4s ease infinite;
+    }
+
+    @keyframes shine {
+      0% {
+        background-position: 0% 50%;
+      }
+
+      50% {
+        background-position: 100% 50%;
+      }
+
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    .visit-content h2 {
+      margin: 0;
+      font-size: 1.4rem;
+      color: #0d47a1;
+    }
+
+    .visit-content .location {
+      color: #2e7d32;
+      font-weight: 500;
+    }
+
+    .visit-content .date {
+      color: #e65100;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .visit-content p {
+      font-size: 0.95rem;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    .read-more {
+      display: flex;
+      justify-content: end;
+      margin-top: 10%;
+      margin-bottom: 2%;
+
+
+
+    }
+
+    .read-more a {
+      display: inline-block;
+      padding: 8px 14px;
+      background-color: #0288d1;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      transition: background 0.3s ease;
+    }
+
+    .rvisit-container:hover {
+      background-color: #01579b;
+    }
+
+    hr {
+      margin: 40px auto;
+      width: 80%;
+      border: none;
+      border-top: 1px solid #ccc;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <div class="nav_top">
+        <div class="clk">
+          <i class="fa-sharp-duotone fa-solid fa-clock"></i>
+        </div>
+        <div id="datetime"></div>
+        <script>
+          function updateDateTime() {
+            const now = new Date();
+
+            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const day = days[now.getDay()];
+
+            const dd = String(now.getDate()).padStart(2, '0');
+            const mm = String(now.getMonth() + 1).padStart(2, '0'); // January is 0
+            const yyyy = now.getFullYear();
+
+            let hours = now.getHours();
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // convert 0 to 12
+            hours = String(hours).padStart(2, '0');
+
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            const formattedDate = `${dd}-${mm}-${yyyy}`;
+            const formattedTime = `${hours}:${minutes}:${seconds} ${ampm}`;
+
+
+            document.getElementById("datetime").textContent = `${day}, ${formattedDate}, ${formattedTime}`;
+          }
+
+          setInterval(updateDateTime, 1000);
+          updateDateTime(); // initial call
+        </script>
+      </div>
+      <div class="nav_bottom">
+        <div class="nav_container">
+          <div class="first_part">
+            <div class="logo"><a href="index.html"><img class="img_logo" src="/allMaterials/logo.png"></a></div>
+            <div class="hit"><span style="color:5cb431;padding-right:4px;">HIT</span><span
+                style="color:#1e67ef;">AEIE</span>
+            </div>
+          </div>
+          <!--<a href="#"><div class="about" id="nav_content">ABOUT<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+      </div></a>--->
+
+          <!---for spacing in nav-->
+          <!-- <div class="nav_item about_dropdown">
+            <div style="width:150px;">
+            </div>
+            <div class="dropdown_menu">
+
+            </div>
+          </div> -->
+          <!------------------>
+          <div class="sec_part">
+            <div class="nav_item about_dropdown">
+              <div class="about" id="nav_content">
+                ABOUT<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+              </div>
+              <div class="dropdown_menu">
+                <a href="institute.html">
+                  <div class="dropdown_item">Institute</div>
+                </a>
+                <a href="about_department.html">
+                  <div class="dropdown_item">Department</div>
+                </a>
+                <a href="faculty.html">
+                  <div class="dropdown_item">Faculty</div>
+                </a>
+                <a href="technicalstaff.html">
+                  <div class="dropdown_item">Technical Staff</div>
+                </a>
+                <a href="committee.html">
+                  <div class="dropdown_item">Committee</div>
+                </a>
+                
+              </div>
+            </div>
+
+
+
+
+            <!--<a href="#"><div class="students" id="nav_content">STUDENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+            <div class="nav_item about_dropdown">
+              <div class="about" id="nav_content">
+                STUDENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+              </div>
+              <div class="dropdown_menu">
+                <a href="student list.html">
+                  <div class="dropdown_item">student list</div>
+                </a>
+                <a href="Training and internship.html">
+                  <div class="dropdown_item">training/internship</div>
+                </a>
+                <a href="industrial visit.html">
+                  <div class="dropdown_item">industrial visit</div>
+                </a>
+                <a href="placement.html">
+                  <div class="dropdown_item">placement</div>
+                </a>
+
+              </div>
+            </div>
+
+
+            <!--<a href="#"><div class="research" id="nav_content">RESEARCH<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+            <div class="nav_item about_dropdown">
+              <div class="about" id="nav_content">
+                RESEARCH<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+              </div>
+              <div class="dropdown_menu">
+                <div class="dropdown_item">research grants</div>
+                <a href="publication.html">
+                  <div class="dropdown_item">publications</div>
+                </a>
+                <div class="dropdown_item">consultancy</div>
+              </div>
+            </div>
+
+
+            <!--<a href="#"><div class="events" id="nav_content">EVENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+            <div class="nav_item about_dropdown">
+              <div class="about" id="nav_content">
+                EVENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+              </div>
+              <div class="dropdown_menu">
+                <div class="dropdown_item">seminar/workshop</div>
+                <div class="dropdown_item">symposium/conference</div>
+                <div class="dropdown_item">invited talks</div>
+                <div class="dropdown_item">alumini interaction</div>
+                <a href="/allMaterials/newsletter.pdf">
+                  <div class="dropdown_item">newsletters</div>
+                </a>
+                <a href="magazine.html">
+                  <div class="dropdown_item">magazine</div>
+                </a>
+                <div class="dropdown_item">wall magazine</div>
+                <div class="dropdown_item">others</div>
+              </div>
+            </div>
+
+
+            <div class="nav_item about_dropdown">
+              <a href="alumni.html">
+                <div class="about" id="nav_content">
+                  ALUMNI
+                </div>
+              </a>
+            </div>
+
+            <div class="nav_item about_dropdown">
+              <a href="student_chapter.html">
+                <div class="about" id="nav_content">
+                  STUDENT<br>CHAPTER
+                </div>
+              </a>
+            </div>
+
+
+
+            <!--<a href="#"><div class="downloads" id="nav_content">DOWNLOADS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+            <div class="nav_item about_dropdown">
+              <div class="about" id="nav_content">
+                DOWNLOADS<div><i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div>
+              </div>
+              <div class="dropdown_menu">
+                <a href="syllabus.html">
+                  <div class="dropdown_item">syllabus</div>
+                </a>
+                <div class="dropdown_item">academic</div>
+                <div class="dropdown_item">calander</div>
+                <div class="dropdown_item">notice</div>
+              </div>
+            </div>
+
+
+            <a href="contact.html">
+              <div class="contact" id="nav_content">CONTACT</div>
+            </a>
+          </div>
+
+          <!-- Adding hamBurger to make website responsive -->
+          <div id="hamBurger" onclick="openNavbar()">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+        </div>
+        <div class="sec_part2">
+          <div class="nav_item about_dropdown">
+            <div class="about" id="nav_content">
+              ABOUT<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+            </div>
+            <div class="dropdown_menu">
+              <a href="institute.html">
+                <div class="dropdown_item">Institute</div>
+              </a>
+              <a href="about_department.html">
+                <div class="dropdown_item">Department</div>
+              </a>
+              <a href="faculty.html">
+                <div class="dropdown_item">Faculty</div>
+              </a>
+              <a href="technicalstaff.html">
+                <div class="dropdown_item">Technical Staff</div>
+              </a>
+              <a href="committee.html">
+                <div class="dropdown_item">Committee</div>
+              </a>
+              <a href="faculty.html">
+                <div class="dropdown_item">Facilities</div>
+              </a>
+            </div>
+          </div>
+
+
+
+
+          <!--<a href="#"><div class="students" id="nav_content">STUDENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+          <div class="nav_item about_dropdown">
+            <div class="about" id="nav_content">
+              STUDENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+            </div>
+            <div class="dropdown_menu">
+              <a href="student list.html">
+                <div class="dropdown_item">student list</div>
+              </a>
+              <a href="Training and internship.html">
+                <div class="dropdown_item">training/internship</div>
+              </a>
+              <a href="industrial visit.html">
+                <div class="dropdown_item">industrial visit</div>
+              </a>
+              <a href="placement.html">
+                <div class="dropdown_item">placement</div>
+              </a>
+
+            </div>
+          </div>
+
+
+          <!--<a href="#"><div class="research" id="nav_content">RESEARCH<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+          <div class="nav_item about_dropdown">
+            <div class="about" id="nav_content">
+              RESEARCH<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+            </div>
+            <div class="dropdown_menu">
+              <div class="dropdown_item">research grants</div>
+              <a href="publication.html">
+                <div class="dropdown_item">publications</div>
+              </a>
+              <div class="dropdown_item">consultancy</div>
+            </div>
+          </div>
+
+
+          <!--<a href="#"><div class="events" id="nav_content">EVENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+          <div class="nav_item about_dropdown">
+            <div class="about" id="nav_content">
+              EVENTS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i>
+            </div>
+            <div class="dropdown_menu">
+              <div class="dropdown_item">seminar/workshop</div>
+              <div class="dropdown_item">symposium/conference</div>
+              <div class="dropdown_item">invited talks</div>
+              <div class="dropdown_item">alumini interaction</div>
+              <a href="/allMaterials/newsletter.pdf">
+                <div class="dropdown_item">newsletters</div>
+              </a>
+              <a href="magazine.html">
+                <div class="dropdown_item">magazine</div>
+              </a>
+              <div class="dropdown_item">wall magazine</div>
+              <div class="dropdown_item">others</div>
+            </div>
+          </div>
+
+
+          <div class="nav_item about_dropdown">
+            <a href="alumni.html">
+              <div class="about" id="nav_content">
+                ALUMNI
+              </div>
+            </a>
+          </div>
+
+          <div class="nav_item about_dropdown">
+            <a href="student_chapter.html">
+              <div class="about" id="nav_content">
+                STUDENT<br>CHAPTER
+              </div>
+            </a>
+          </div>
+
+
+
+          <!--<a href="#"><div class="downloads" id="nav_content">DOWNLOADS<i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div></a>-->
+
+          <div class="nav_item about_dropdown">
+            <div class="about" id="nav_content">
+              DOWNLOADS<div><i class="fa-solid fa-angle-down" style="margin-left: 5px;"></i></div>
+            </div>
+            <div class="dropdown_menu">
+              <a href="syllabus.html">
+                <div class="dropdown_item">syllabus</div>
+              </a>
+              <div class="dropdown_item">academic</div>
+              <div class="dropdown_item">calander</div>
+              <div class="dropdown_item">notice</div>
+            </div>
+          </div>
+
+
+          <a href="contact.html">
+            <div class="contact" id="nav_content">CONTACT</div>
+          </a>
+        </div>
+        <script>
+          const openNavbar = () => {
+            const hamBurger = document.getElementById("hamBurger");
+            const secPart2 = document.querySelector('.sec_part2');
+
+            hamBurger.classList.toggle('active');
+
+            if (hamBurger.classList.contains('active')) {
+              secPart2.style.right = "0px";
+              hamBurger.innerHTML = `<strong class="cross">X</strong>`;
+            } else {
+              secPart2.style.right = "-100%";
+              hamBurger.innerHTML = `
+               <div class="line1"></div>
+               <div class="line2"></div>
+               <div class="line3"></div>`;
+            }
+          };
+        </script>
+      </div>
+    </div>
+  </header>
+
+  <div class="gap" style="height: 116px;"></div>
+  <div class="body">
+    <h1>Industrial Visit</h1>
+    <h3>BRIDGING THE GAP BETWEEN CLASSROOM AND INDUSTRY</h3>
+
+    <!-- Visit 1 -->
+    <div class="visit-container">
+      <img src="/allMaterials/vecc.jpg" alt="VECC Visit" class="visit-img">
+      <div class="visit-content">
+        <h2>ONE-DAY INDUSTRIAL VISIT AT VARIABLE ENERGY CYCLOTRON CENTRE (VECC), KOLKATA</h2>
+        <div class="location">at Variable Energy Cyclotron Centre (VECC), Bidhan Nagar, Kolkata</div>
+        <div class="date">From 25-Mar-2025 To 28-Mar-2025</div>
+        <p>
+         The skill development program at CSIR-CGCRI provided a valuable hands-on 
+learning experience in key areas of materials science and process engineering. We 
+gained practical insights into the functioning and design of heating elements in 
+furnaces, essential for high-temperature applications. Additionally, we explored the 
+chemical characterization techniques used to analyze glass and ceramic materials, 
+deepening our understanding of their composition and properties. The program also 
+introduced us to essential concepts in process control, including feedback loops and 
+the calibration of temperature sensors such as thermocouples. Overall, this training has 
+enhanced our technical knowledge and prepared us for further work in research and 
+industrial environments.
+        </p>
+        <div class="read-more">
+          <a href="INDUSTRIAL VISIT ICG-3_AEIE.pdf" target="_blank">View Report</a>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- Visit 2 -->
+    <div class="visit-container">
+      <img src="/allMaterials/coast guard_pic.png" alt="Coast Guard Visit" class="visit-img">
+      <div class="visit-content">
+        <h2>ONE-DAY INDUSTRIAL VISIT AT INDIAN COAST GUARD, HALDIA</h2>
+        <div class="location">at The Indian Coast Guard, Haldia, WB</div>
+        <div class="date">on 21-Nov-2024</div>
+        <p>
+          The Indian Coast Guard (ICG) plays a crucial role in ensuring the safety and security of India's maritime
+          interests. As an armed force under the Ministry of Defence, it is responsible for safeguarding India's vast
+          coastline, protecting the marine environment, and enforcing maritime laws. The student visit to the Indian
+          Coast Guard facility was organized to offer an educational experience and a deeper insight into the
+          operational aspects of maritime security, environmental protection, and disaster management. The visit
+          provided an opportunity for students to understand the Coast Guard's infrastructure, technology, and the
+          diverse roles it plays in national defence and public safety.</p>
+        <div class="read-more">
+          <a href="INDUSTRIAL VISIT ICG-3_AEIE.pdf" target="_blank">View Report</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+
+    <div class="footer_left" style="width:100%; height:100%;">
+      <div id="heading_f">About HIT</div>
+      <div class="footer_l_content">Haldia Institute of Technology is the first private, accredited technical
+        institution in West Bengal, Located in Haldia, an industrial hub of Eastern India. It focuses on producing
+        skilled professionals in engineering, technology, and social sciences while also promoting advanced research in
+        these fields.</div>
+    </div>
+    <div class="footer_center" style="width:100%; height:100%;">
+      <div id="heading_f">quick links</div>
+      <div class="footer_l_content">ICCDC 2025 (Upcoming)<br>NSIC 2025<br>ICCDC 2023<br>ICCDC 2021<br>ICCDC
+        2019<br>ICCDC 2017</div>
+    </div>
+    <div class="footer_right" style="width:100%; height:100%;">
+      <div id="heading_f">follow us on social media</div>
+      <div class="icon_f">
+        <ul style="list-style-type: none;">
+          <li><a href="@"><i class="fa-brands fa-square-x-twitter fa-2xl"></i></a></li>
+          <li><a href="@"><i class="fa-brands fa-square-facebook fa-2xl"></i></a></li>
+          <li><a href="@"><i class="fa-brands fa-square-instagram fa-2xl"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
